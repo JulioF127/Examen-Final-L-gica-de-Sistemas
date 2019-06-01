@@ -10,7 +10,7 @@ class Dividir:
        
 
        
-        ancho = 400
+        ancho = 800
         alto = 400
 
         
@@ -41,9 +41,9 @@ class Dividir:
         self.var3 = Entry (frame)
         self.var3.grid(row =2, column =0 )
 
-        #Creamos un boton para ejecutar la Division
+       
         Button(frame, text = 'Boton 1', background ="#307d99", command = self.funcion1).grid(row = 3, columnspan = 2, sticky = W + E)
-        
+        Button(frame, text = 'Boton 2', background ="#307d99", command = self.funcion1).grid(row = 4, columnspan = 2, sticky = W + E)
       
         
         self.message = Label(text = '', fg = 'blue', background="#1fa388")
@@ -57,25 +57,13 @@ class Dividir:
 
     def funcion1(self):
         if self.validation():
-            if(int( self.var1.get() ) < int( self.var3.get()):
-                resultadomulti = int( self.var1.get() ) * int( self.var2.get()) * int(self.var3.get()) )
-                self.message['text'] = 'El resultado de la multiplicacion es: {}'.format(int(resultadomulti))
-        
+            if int( self.var1.get() ) < int( self.var3.get()):
+                resultadomulti = int( self.var1.get() ) * int( self.var2.get()) * int(self.var3.get()) 
+                self.message['text'] = 'El primer número es menor que el tercero, se ha realizado una multiplicación y el resultado es: {}'.format(int(resultadomulti))
         else:
-            self.message['text'] = 'los campos son necesarios.' 
+            self.message['text'] = 'Los campos son necesarios.' 
 
-    def funcion2(self):
-        if self.validation():
-            resultado = int( self.var1.get() ) / int( self.var2.get() )
-            resultado2 = int( self.var1.get() ) % int( self.var2.get())
-
-            if(resultado2 == 0):
-                self.message['text'] = 'La división realizada es exacta y su cociente es: {}'.format(resultado)
-            else:
-                self.message['text'] = 'La división realizada es inexacta su cociente es: {}'.format(int(resultado)) 
-                self.message2['text'] = 'Su residuo es: {}'.format(resultado2)
-        else:
-            self.message['text'] = 'los campos son necesarios.'   
+           
              
 if __name__ == '__main__':
 
