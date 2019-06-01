@@ -77,7 +77,7 @@ class Examen:
             ntextos = int( self.var1.get() ) * int( self.var2.get())
             concatenacion = str( self.var1.get() ) + str( self.var2.get()) + str(self.var3.get())
             self.message['text'] = '{}'.format(str(concatenacion))
-           
+           #No pude realizar la segunda función :c
              
 if __name__ == '__main__':
 
