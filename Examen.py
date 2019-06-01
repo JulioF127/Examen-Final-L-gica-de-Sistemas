@@ -5,7 +5,7 @@
 from tkinter import ttk
 from tkinter import *
    
-class Dividir:
+class Examen:
     def __init__(self, window):
        
 
@@ -43,7 +43,7 @@ class Dividir:
 
        
         Button(frame, text = 'Boton 1', background ="#307d99", command = self.funcion1).grid(row = 3, columnspan = 2, sticky = W + E)
-        Button(frame, text = 'Boton 2', background ="#307d99", command = self.funcion1).grid(row = 4, columnspan = 2, sticky = W + E)
+        Button(frame, text = 'Boton 2', background ="#307d99", command = self.funcion2).grid(row = 4, columnspan = 2, sticky = W + E)
       
         
         self.message = Label(text = '', fg = 'blue', background="#1fa388")
@@ -60,9 +60,23 @@ class Dividir:
             if int( self.var1.get() ) < int( self.var3.get()):
                 resultadomulti = int( self.var1.get() ) * int( self.var2.get()) * int(self.var3.get()) 
                 self.message['text'] = 'El primer número es menor que el tercero, se ha realizado una multiplicación y el resultado es: {}'.format(int(resultadomulti))
+            if int( self.var1.get() ) == int( self.var3.get()):
+                resultadosuma = int( self.var1.get() ) + int( self.var2.get()) + int(self.var3.get())
+                self.message['text'] = 'El primer número es igual al tercero, se ha realizado una suma y el resultado es: {}'.format(int(resultadosuma))
+            if int( self.var2.get() ) == 0:
+                if int( self.var1.get() ) <= int( self.var3.get()):
+                    resultadoresta1 = int( self.var3.get() ) - int( self.var1.get())
+                    self.message['text'] = 'Se ha restado el primer número al tercero y el resultado es: {}'.format(int(resultadoresta1))
+                else:
+                    resultadoresta2 = int( self.var1.get() ) - int( self.var3.get())
+                    self.message['text'] = 'Se ha restado el tercer número al primero y el resultado es: {}'.format(int(resultadoresta2))
         else:
             self.message['text'] = 'Los campos son necesarios.' 
-
+    def funcion2(self):
+        if self.validation():
+            ntextos = int( self.var1.get() ) * int( self.var2.get())
+            concatenacion = str( self.var1.get() ) + str( self.var2.get()) + str(self.var3.get())
+            self.message['text'] = '{}'.format(str(concatenacion))
            
              
 if __name__ == '__main__':
@@ -70,7 +84,7 @@ if __name__ == '__main__':
     window = Tk()
 
     
-    app = Dividir(window)
+    app = Examen(window)
    
 
     window.mainloop()
